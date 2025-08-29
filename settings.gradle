@@ -1,0 +1,5 @@
+rootProject.name = 'Example'
+include 'API'
+include 'Core'
+include 'Utilities'
+

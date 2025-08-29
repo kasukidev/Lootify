@@ -1,0 +1,132 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'java'
+    id 'maven-publish'
+    id("com.google.protobuf") version "0.9.4"
+}
+
+group = 'cc.insidious.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url = 'https://jitpack.io'
+    }
+
+    maven {
+        url = 'https://repo.aikar.co/content/groups/aikar/'
+    }
+
+    maven {
+        url = 'https://repo.codemc.io/repository/maven-public/'
+    }
+
+    maven {
+        url = 'https://maven.insidious.cc/repository/maven-mixed/'
+    }
+
+    mavenLocal()
+    mavenCentral()
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        shadow(MavenPublication) { publication ->
+            project.shadow.component(publication)
+        }
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+compileJava {
+    options.encoding = 'UTF-8'
+    sourceCompatibility = 8
+    targetCompatibility = 8
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    systemProperty "file.encoding", "utf-8"
+}
+
+shadowJar {
+    archiveBaseName.set('Example-1.0-SNAPSHOT')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+    relocate('com.cryptomorin', 'cc.insidious.example.internal.com.cryptomorin')
+    relocate('org.intellij', 'cc.insidious.example.internal.org.intellij')
+    relocate('org.apache', 'cc.insidious.example.internal.org.apache')
+    relocate('de.tr7zw.changeme.nbtapi', 'cc.insidious.example.internal.de.tr7zw.nbtapi')
+    relocate('com.zaxxer', 'cc.insidious.example.internal.com.zaxxer')
+    relocate('org.bson', 'cc.insidious.example.internal.org.bson')
+    relocate('com.mongodb', 'cc.insidious.example.internal.com.mongodb')
+    relocate('cc.insidious.fethmusmioma', 'cc.insidious.example.internal.cc.insidious.fethmusmioma')
+    relocate('cc.insidious.menu', 'cc.insidious.example.internal.cc.insidious.menu')
+    relocate('cc.insidious.config', 'cc.insidious.example.internal.cc.insidious.config')
+    relocate('com.codahale', 'cc.insidious.example.internal.com.codahale')
+    relocate('com.datastax', 'cc.insidious.example.internal.com.datastax')
+    relocate('com.fasterxml', 'cc.insidious.example.internal.com.fasterxml')
+    relocate('com.google', 'cc.insidious.example.internal.com.google')
+    relocate('com.kenai', 'cc.insidious.example.internal.com.kenai')
+    relocate('com.typesafe', 'cc.insidious.example.internal.com.typesafe')
+    relocate('de.tr7zw.annotations', 'cc.insidious.example.internal.de.tr7zw.annotations')
+    relocate('io.netty', 'cc.insidious.example.internal.io.netty')
+    relocate('jnr', 'cc.insidious.example.internal.jnr')
+    relocate('org.HdrHistogram', 'cc.insidious.example.internal.org.hdrhistogram')
+    relocate('org.jetbrains', 'cc.insidious.example.internal.org.jetbrains')
+    relocate('org.objectweb', 'cc.insidious.example.internal.org.objectweb')
+    relocate('org.reactivestreams', 'cc.insidious.example.internal.org.reactivestreams')
+    relocate('org.slf4j', 'cc.insidious.example.internal.org.slf4j')
+    relocate('redis.clients', 'cc.insidious.example.internal.redis.clients')
+    relocate('com.github.benmanes', 'cc.insidious.example.internal.com.github.benmanes')
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:4.28.2'
+    }
+    generateProtoTasks {
+        all().configureEach { task ->
+            task.builtins {
+                java {
+
+                }
+            }
+        }
+    }
+}
+
+
+dependencies {
+    annotationProcessor('org.projectlombok:lombok:1.18.36')
+    compileOnly('org.projectlombok:lombok:1.18.36')
+    compileOnly('org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT')
+    implementation('org.mongodb:mongodb-driver-sync:5.5.1')
+    implementation('cc.insidious.fethmusmioma:FethmusMioma:1.0-SNAPSHOT')
+    implementation('cc.insidious.config:spigot:1.0-SNAPSHOT')
+    implementation('cc.insidious.menu:MenuAPI:1.0-SNAPSHOT')
+    implementation('com.github.cryptomorin:XSeries:13.2.0')
+    implementation('org.jetbrains:annotations:24.1.0')
+    implementation('org.apache.commons:commons-text:1.12.0')
+    implementation('org.apache.commons:commons-lang3:3.17.0')
+    implementation('de.tr7zw:item-nbt-api:2.15.0')
+    implementation('com.zaxxer:HikariCP:4.0.3')
+    implementation('com.google.protobuf:protobuf-java:4.28.2')
+    implementation('org.xerial:sqlite-jdbc:3.47.0.0')
+    implementation('com.scylladb:java-driver-mapper-runtime:4.18.0.1')
+    implementation('com.scylladb:java-driver-core:4.18.0.1')
+    implementation('com.scylladb:java-driver-query-builder:4.18.0.1')
+    implementation('redis.clients:jedis:6.0.0')
+    implementation('com.github.ben-manes.caffeine:caffeine:2.9.3')
+    implementation('com.google.guava:guava:33.4.8-jre')
+    implementation project(':API')
+    implementation project(':Utilities')
+}
