@@ -28,5 +28,7 @@ public class ExamplePlugin extends JavaPlugin {
         .forEachOrdered(IRegistrationHandler::registerObjects);
   }
 
-  public void onDisable() {}
+  public void onDisable() {
+    this.exampleAPI.shutdown();
+  }
 }

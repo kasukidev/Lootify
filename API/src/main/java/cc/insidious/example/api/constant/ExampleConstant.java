@@ -12,4 +12,5 @@ public class ExampleConstant {
   public final Charset CHARSET = StandardCharsets.UTF_8;
   public final String NMS_VERSION =
       Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
+  public final String SQLITE_DATABASE_NAME = "example-database";
 }

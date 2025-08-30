@@ -5,6 +5,8 @@ import cc.insidious.example.api.registration.IRegistrationHandler;
 import cc.insidious.fethmusmioma.CommandHandler;
 import lombok.RequiredArgsConstructor;
 
+import java.util.stream.Stream;
+
 @RequiredArgsConstructor
 public class CommandRegistrationHandler implements IRegistrationHandler {
 
@@ -13,5 +15,8 @@ public class CommandRegistrationHandler implements IRegistrationHandler {
   @Override
   public void registerObjects() {
     CommandHandler commandHandler = new CommandHandler(this.instance, "example");
+
+    Stream.of()
+            .forEach(commandHandler::registerCommand);
   }
 }

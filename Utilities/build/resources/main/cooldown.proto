@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package cc.insidious.example.utilities.cooldown;
-
-message Cooldown {
-  map<string,int64> cooldowns = 1;
-}

@@ -12,5 +12,7 @@ public class ModuleRegistrationHandler implements IRegistrationHandler {
   private final ExampleAPI exampleAPI;
 
   @Override
-  public void registerObjects() {}
+  public void registerObjects() {
+
+  }
 }
