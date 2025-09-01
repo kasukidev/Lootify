@@ -25,7 +25,7 @@ public class ExampleAPI {
         this.logger = Bukkit.getLogger();
     }
 
-    public <T> void register(Class<? super T> type, T module) {
+    public <T> void register(Class<?> type, T module) {
         Objects.requireNonNull(type, "type cannot be null");
         Objects.requireNonNull(module, "module cannot be null");
         if (!type.isInstance(module)) {
