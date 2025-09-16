@@ -21,7 +21,7 @@ public class LootTableMenu {
     }
 
     public void openMenu(Player player){
-        SGMenu menu = instance.getSpiGui().create("Viewing Loot Tables", 5);
+        SGMenu menu = instance.getSpiGui().create("Loot Tables", 5);
         menu.setAutomaticPaginationEnabled(true);
 
         lootTableHandler.getAllFromCache().forEach(wrapper -> menu.addButton(getLootTableButton(wrapper)));
@@ -31,10 +31,10 @@ public class LootTableMenu {
     }
 
     private SGButton getLootTableButton(LootTableWrapper wrapper){
-        return new SGButton(new ItemBuilder(XMaterial.CHEST.parseItem())
-                .name("&b&l" + wrapper.getTableId().toUpperCase() + " Loot Table")
+        return new SGButton(new ItemBuilder(XMaterial.ENDER_CHEST.parseItem())
+                .name("&b&l" + wrapper.getTableId().toUpperCase())
                 .lore(Lists.newArrayList(
-                        "&d&lItems:&f " + wrapper.getLootEntries().size(),
+                        "&7&l• &d&lItems:&f " + wrapper.getLootEntries().size(),
                         "",
                         "&7Click to edit this loot table!"
                 ))
