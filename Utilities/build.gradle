@@ -5,7 +5,7 @@ plugins {
     id("com.google.protobuf") version "0.9.4"
 }
 
-group = 'cc.insidious.example'
+group = 'cc.insidious.lootify'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -58,7 +58,7 @@ test {
 }
 
 shadowJar {
-    archiveBaseName.set('Example-Utilities-1.0-SNAPSHOT')
+    archiveBaseName.set('Lootify-Utilities-1.0-SNAPSHOT')
     archiveClassifier.set('')
     archiveVersion.set('')
 }

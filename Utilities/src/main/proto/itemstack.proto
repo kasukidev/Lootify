@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cc.insidious.example.utilities.item;
+package cc.insidious.lootify.utilities.item;
 
 
 message ItemStack {

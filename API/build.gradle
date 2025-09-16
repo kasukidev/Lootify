@@ -5,7 +5,7 @@ plugins {
     id("com.google.protobuf") version "0.9.4"
 }
 
-group = 'cc.insidious.example'
+group = 'cc.insidious.lootify'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -58,7 +58,7 @@ test {
 }
 
 shadowJar {
-    archiveBaseName.set('Example-API-1.0-SNAPSHOT')
+    archiveBaseName.set('Lootify-API-1.0-SNAPSHOT')
     archiveClassifier.set('')
     archiveVersion.set('')
 }
@@ -83,14 +83,8 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok:1.18.36')
     compileOnly('org.projectlombok:lombok:1.18.36')
     compileOnly('org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT')
-    compileOnly('org.mongodb:mongodb-driver-sync:5.5.1')
     compileOnly('org.xerial:sqlite-jdbc:3.47.0.0')
-    compileOnly('com.zaxxer:HikariCP:4.0.3')
     compileOnly('com.google.protobuf:protobuf-java:4.28.2')
-    compileOnly('com.scylladb:java-driver-mapper-runtime:4.18.0.1')
-    compileOnly('com.scylladb:java-driver-core:4.18.0.1')
-    compileOnly('com.scylladb:java-driver-query-builder:4.18.0.1')
-    compileOnly('redis.clients:jedis:6.0.0')
     compileOnly('com.github.cryptomorin:XSeries:13.2.0')
     compileOnly('com.github.ben-manes.caffeine:caffeine:2.9.3')
     compileOnly project(':Utilities')

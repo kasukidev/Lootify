@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package cc.insidious.lootify.api.loottable;
+
+import "itemstack.proto";
+
+message Lootentry {
+   string uniqueID = 1;
+   cc.insidious.lootify.utilities.item.ItemStack itemStack = 2;
+   double chance = 3;
+}

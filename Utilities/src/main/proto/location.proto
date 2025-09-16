@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package cc.insidious.example.utilities.location;
+package cc.insidious.lootify.utilities.location;
 
 message Location {
   string worldId = 1;

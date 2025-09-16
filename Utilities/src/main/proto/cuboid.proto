@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package cc.insidious.example.utilities.cuboid;
+package cc.insidious.lootify.utilities.cuboid;
 
 import "location.proto";
 
 message Cuboid {
-  cc.insidious.example.utilities.location.Location firstLocation = 1;
-  cc.insidious.example.utilities.location.Location secondLocation = 2;
+  cc.insidious.lootify.utilities.location.Location firstLocation = 1;
+  cc.insidious.lootify.utilities.location.Location secondLocation = 2;
 }

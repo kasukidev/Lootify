@@ -1,4 +1,4 @@
-rootProject.name = 'Example'
+rootProject.name = 'Lootify'
 include 'API'
 include 'Core'
 include 'Utilities'
