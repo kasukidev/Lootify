@@ -21,7 +21,7 @@ public class LangConfig extends Config {
     public static String INVALID_CHANCE = "&cInvalid chance, please input an integer or double.";
 
     @ConfigAnnotation(path = "chance_updated")
-    public static String CHANCE_UPDATED = "&aUpdated chance to  %amount%%!";
+    public static String CHANCE_UPDATED = "&aUpdated chance to %amount%%!";
 
     public LangConfig(JavaPlugin plugin) {
         super(plugin, "lang");
