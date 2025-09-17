@@ -47,7 +47,7 @@ public class EditorMenu {
     }
 
     private SGButton getEditorButton(LootEntryWrapper wrapper){
-        LootTableHelper lootTableUtil = new LootTableHelper(lootTableHandler);
+        LootTableHelper lootifyHelper = new LootTableHelper(lootTableHandler);
         ItemStack stack = ItemStackSerializer.deserialize(wrapper.getItemStack());
         ItemMeta meta = stack.getItemMeta();
         String name = LootifyUtil.getItemName(stack);
@@ -59,7 +59,7 @@ public class EditorMenu {
         lore.addAll(Lists.newArrayList(
                 "",
                 "&8&m------------------------",
-                "&b&lAbsolute Chance:&f " + lootTableUtil.getAbsoluteChance(lootTableWrapper, wrapper) + "%",
+                "&b&lAbsolute Chance:&f " + lootifyHelper.getAbsoluteChance(lootTableWrapper, wrapper) + "%",
                 "&b&lRelative Chance:&f " + wrapper.getChance() + "%",
                 "",
                 "&7Left-Click to modify this entry's chance",

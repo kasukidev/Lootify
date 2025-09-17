@@ -18,8 +18,8 @@ public class LootTableRegistrationHandler implements IRegistrationHandler {
 
     @Override
     public void registerObjects() {
-        LootTableHelper lootTableUtil = new LootTableHelper(lootTableHandler);
-        Stream.of("lootify")
-                .forEachOrdered(lootTableUtil::setupLootTable);
+        LootTableHelper lootifyHelper = new LootTableHelper(lootTableHandler);
+        Stream.of("lootify_testing")
+                .forEachOrdered(lootifyHelper::setupLootTable);
     }
 }
