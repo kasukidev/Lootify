@@ -1,10 +1,12 @@
-package cc.insidious.lootify.menu.editor;
+package cc.insidious.lootify.menu;
 
 import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.util.LootTableUtil;
 import cc.insidious.lootify.api.loottable.wrapper.LootEntryWrapper;
 import cc.insidious.lootify.api.loottable.wrapper.LootTableWrapper;
+import cc.insidious.lootify.config.LangConfig;
+import cc.insidious.lootify.loottable.editor.ChanceEditor;
 import cc.insidious.lootify.util.LootifyUtil;
 import cc.insidious.lootify.utilities.item.ItemStackSerializer;
 import com.cryptomorin.xseries.XMaterial;
@@ -26,6 +28,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class EditorMenu {
@@ -90,5 +93,21 @@ public class EditorMenu {
             return;
         }
 
+        Optional<ChanceEditor> chanceEditorOpt = instance.getEditorFromUUID(player.getUniqueId());
+
+        if(chanceEditorOpt.isPresent()){
+            instance.getActiveEditors().remove(chanceEditorOpt.get());
+            initChanceEditor(player, wrapper);
+            return;
+        }
+
+        initChanceEditor(player, wrapper);
+    }
+
+    private void initChanceEditor(Player player, LootEntryWrapper lootEntryWrapper){
+        ChanceEditor chanceEditor = new ChanceEditor(player.getUniqueId(), lootTableWrapper, lootEntryWrapper);
+        LootifyUtil.sendSuccess(player, LangConfig.TYPE_PERCENT_IN_CHAT);
+        instance.getActiveEditors().add(chanceEditor);
+        player.closeInventory();
     }
 }

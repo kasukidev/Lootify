@@ -1,10 +1,10 @@
-package cc.insidious.lootify.menu.editor;
+package cc.insidious.lootify.listener;
 
 import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.wrapper.LootEntryWrapper;
 import cc.insidious.lootify.api.loottable.wrapper.LootTableWrapper;
-import cc.insidious.lootify.menu.LootTableMenu;
+import cc.insidious.lootify.menu.EditorMenu;
 import cc.insidious.lootify.utilities.item.ItemStackSerializer;
 import com.cryptomorin.xseries.XMaterial;
 import lombok.Getter;
@@ -36,7 +36,6 @@ public class GlobalEditorMenuListener implements Listener {
     public void onClick(InventoryClickEvent event) {
         if (!(event.getWhoClicked() instanceof Player)) return;
         Player player = (Player) event.getWhoClicked();
-
         LootTableWrapper wrapper = editingPlayers.get(player.getUniqueId());
         if (wrapper == null) return;
 
@@ -44,11 +43,10 @@ public class GlobalEditorMenuListener implements Listener {
         if (!menuTitle.equalsIgnoreCase(event.getView().getTitle())) return;
         if (event.getClickedInventory() == null || !event.getClickedInventory().equals(player.getInventory())) return;
 
-        event.setCancelled(true);
-
         ItemStack clicked = event.getCurrentItem();
-        if (clicked == null || clicked.getType() == null || clicked.getType() == XMaterial.AIR.parseMaterial()) return;
+        if (clicked == null || clicked.getType() == null || clicked.getType() == XMaterial.AIR.get()) return;
 
+        event.setCancelled(true);
         wrapper = wrapper.addLootEntry(LootEntryWrapper.from(UUID.randomUUID(), ItemStackSerializer.serialize(clicked), 1.0)).setChanged(true);
         lootTableHandler.addToCache(wrapper);
         new EditorMenu(this.instance, wrapper).openMenu(player);

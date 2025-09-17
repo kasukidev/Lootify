@@ -3,7 +3,6 @@ package cc.insidious.lootify.menu;
 import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.wrapper.LootTableWrapper;
-import cc.insidious.lootify.menu.editor.EditorMenu;
 import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XSound;
 import com.google.common.collect.Lists;
