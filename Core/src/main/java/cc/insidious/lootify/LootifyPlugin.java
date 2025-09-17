@@ -2,6 +2,7 @@ package cc.insidious.lootify;
 
 import cc.insidious.lootify.api.LootifyAPI;
 import cc.insidious.lootify.api.registration.IRegistrationHandler;
+import cc.insidious.lootify.menu.editor.GlobalEditorMenuListener;
 import cc.insidious.lootify.registration.data.ConfigRegistrationHandler;
 import cc.insidious.lootify.registration.data.LootTableRegistrationHandler;
 import cc.insidious.lootify.registration.data.ModuleRegistrationHandler;
@@ -9,6 +10,7 @@ import cc.insidious.lootify.registration.gameplay.CommandRegistrationHandler;
 import cc.insidious.lootify.registration.gameplay.ListenerRegistrationHandler;
 import com.samjakob.spigui.SpiGUI;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.stream.Stream;
@@ -18,6 +20,9 @@ public class LootifyPlugin extends JavaPlugin {
 
     private LootifyAPI lootifyAPI;
     private SpiGUI spiGui;
+
+    @Setter
+    private GlobalEditorMenuListener editorListener;
 
     @Override
     public void onEnable() {

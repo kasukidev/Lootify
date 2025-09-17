@@ -41,6 +41,7 @@ public class LootTableWrapper {
         return new LootTableWrapper(builder.build());
     }
 
+
     public LootTableWrapper removeLootEntry(LootEntryWrapper wrapper) {
         LoottableOuterClass.Loottable.Builder builder = this.loottable.toBuilder();
 

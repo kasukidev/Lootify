@@ -5,6 +5,6 @@ package cc.insidious.lootify.api.loottable;
 import "lootentry.proto";
 
 message Loottable {
-  string table_id = 1;
+  string tableId = 1;
   repeated cc.insidious.lootify.api.loottable.Lootentry lootEntry = 2;
 }
