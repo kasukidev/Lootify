@@ -1,4 +1,4 @@
-package cc.insidious.lootify.api.loottable.util;
+package cc.insidious.lootify.api.loottable.helper;
 
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.wrapper.LootEntryWrapper;
@@ -8,16 +8,15 @@ import cc.insidious.lootify.utilities.item.ItemStackSerializer;
 import com.cryptomorin.xseries.XMaterial;
 import com.google.common.collect.Lists;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class LootTableUtil {
+public class LootTableHelper {
     private ILootTableHandler handler;
 
-    public LootTableUtil(ILootTableHandler lootTableHandler) {
+    public LootTableHelper(ILootTableHandler lootTableHandler) {
         this.handler = lootTableHandler;
     }
 

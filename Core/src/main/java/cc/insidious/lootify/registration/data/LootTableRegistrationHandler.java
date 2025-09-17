@@ -2,7 +2,7 @@ package cc.insidious.lootify.registration.data;
 
 import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
-import cc.insidious.lootify.api.loottable.util.LootTableUtil;
+import cc.insidious.lootify.api.loottable.helper.LootTableHelper;
 import cc.insidious.lootify.api.registration.IRegistrationHandler;
 
 import java.util.stream.Stream;
@@ -18,7 +18,7 @@ public class LootTableRegistrationHandler implements IRegistrationHandler {
 
     @Override
     public void registerObjects() {
-        LootTableUtil lootTableUtil = new LootTableUtil(lootTableHandler);
+        LootTableHelper lootTableUtil = new LootTableHelper(lootTableHandler);
         Stream.of("lootify")
                 .forEachOrdered(lootTableUtil::setupLootTable);
     }

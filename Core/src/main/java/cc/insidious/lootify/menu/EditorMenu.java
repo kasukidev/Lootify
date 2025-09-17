@@ -2,34 +2,26 @@ package cc.insidious.lootify.menu;
 
 import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
-import cc.insidious.lootify.api.loottable.util.LootTableUtil;
+import cc.insidious.lootify.api.loottable.helper.LootTableHelper;
 import cc.insidious.lootify.api.loottable.wrapper.LootEntryWrapper;
 import cc.insidious.lootify.api.loottable.wrapper.LootTableWrapper;
 import cc.insidious.lootify.config.LangConfig;
 import cc.insidious.lootify.loottable.editor.ChanceEditor;
 import cc.insidious.lootify.util.LootifyUtil;
 import cc.insidious.lootify.utilities.item.ItemStackSerializer;
-import com.cryptomorin.xseries.XMaterial;
 import com.cryptomorin.xseries.XSound;
 import com.google.common.collect.Lists;
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
 import com.samjakob.spigui.menu.SGMenu;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public class EditorMenu {
     private final LootifyPlugin instance;
@@ -55,7 +47,7 @@ public class EditorMenu {
     }
 
     private SGButton getEditorButton(LootEntryWrapper wrapper){
-        LootTableUtil lootTableUtil = new LootTableUtil(lootTableHandler);
+        LootTableHelper lootTableUtil = new LootTableHelper(lootTableHandler);
         ItemStack stack = ItemStackSerializer.deserialize(wrapper.getItemStack());
         ItemMeta meta = stack.getItemMeta();
         String name = LootifyUtil.getItemName(stack);
