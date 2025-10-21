@@ -44,7 +44,7 @@ public class ChanceModifyListener implements Listener {
         }
 
         event.setCancelled(true);
-        updateLootEntry(player, editor, value);
+        this.updateLootEntry(player, editor, value);
         this.instance.getActiveEditors().remove(editor);
         LootifyUtil.sendSuccess(player, LangConfig.CHANCE_UPDATED.replace("%amount%", String.valueOf(value)));
     }
@@ -55,7 +55,7 @@ public class ChanceModifyListener implements Listener {
         table = table.removeLootEntry(editor.getLootEntryWrapper()).addLootEntry(entry).setChanged(true);
         lootTableHandler.addToCache(table);
 
-        final EditorMenu editorMenu = new EditorMenu(this.instance, table);
+        EditorMenu editorMenu = new EditorMenu(this.instance, table);
 
         Bukkit.getScheduler().runTask(this.instance, () ->
                 editorMenu.openMenu(player)

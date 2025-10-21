@@ -26,8 +26,8 @@ public class SQLiteLootTableHandler implements ILootTableHandler {
     }
 
     @Override
-    public void addToCache(LootTableWrapper warpWrapper) {
-        this.lootTableCacheHandler.addToCache(warpWrapper);
+    public void addToCache(LootTableWrapper lootTableWrapper) {
+        this.lootTableCacheHandler.addToCache(lootTableWrapper);
     }
 
     @Override
@@ -46,8 +46,8 @@ public class SQLiteLootTableHandler implements ILootTableHandler {
     }
 
     @Override
-    public void saveToDatabase(LootTableWrapper warpWrapper) {
-        this.sqLiteLootTableRepository.saveToDatabase(warpWrapper.getTableId(), warpWrapper.getLoottable().toByteArray());
+    public void saveToDatabase(LootTableWrapper lootTableWrapper) {
+        this.sqLiteLootTableRepository.saveToDatabase(lootTableWrapper.getTableId(), lootTableWrapper.getLoottable().toByteArray());
     }
 
     @Override
@@ -56,10 +56,10 @@ public class SQLiteLootTableHandler implements ILootTableHandler {
     }
 
     @Override
-    public void saveAllToDatabase(Collection<LootTableWrapper> warpWrappers) {
+    public void saveAllToDatabase(Collection<LootTableWrapper> lootTableWrappers) {
         Map<String, byte[]> map = new HashMap<>();
-        for (LootTableWrapper warpWrapper : warpWrappers) {
-            map.put(warpWrapper.getTableId(), warpWrapper.getLoottable().toByteArray());
+        for (LootTableWrapper lootTableWrapper : lootTableWrappers) {
+            map.put(lootTableWrapper.getTableId(), lootTableWrapper.getLoottable().toByteArray());
         }
 
         this.sqLiteLootTableRepository.saveBatch(map);
