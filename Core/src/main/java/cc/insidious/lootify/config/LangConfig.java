@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class LangConfig extends Config {
     @ConfigAnnotation(path = "server_prefix")
-    public static String SERVER_PREFIX = "&8[&b&lRavage&d&lPvP&8]";
+    public static String SERVER_PREFIX = "&8[&b&lLootify&8]";
 
     @ConfigAnnotation(path = "no_loottable_found")
     public static String NO_LOOTTABLE_FOUND = "&cNo loottable has been found named %id%!";
