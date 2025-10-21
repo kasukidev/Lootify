@@ -4,6 +4,7 @@ import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.helper.LootTableHelper;
 import cc.insidious.lootify.api.registration.IRegistrationHandler;
+import cc.insidious.lootify.config.MainConfig;
 
 import java.util.stream.Stream;
 
@@ -19,7 +20,8 @@ public class LootTableRegistrationHandler implements IRegistrationHandler {
     @Override
     public void registerObjects() {
         LootTableHelper lootifyHelper = new LootTableHelper(lootTableHandler);
-        Stream.of("lootify_testing")
-                .forEachOrdered(lootifyHelper::setupLootTable);
+
+        if(MainConfig.ENABLE_EXAMPLE)
+            Stream.of("lootify_testing").forEachOrdered(lootifyHelper::setupLootTable);
     }
 }
