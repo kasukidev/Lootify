@@ -34,8 +34,6 @@ depend: [Lootify]
 Here’s an example of how to use **Lootify’s API** to roll a random item from a loot table and apply it to your own plugin logic.
 
 ```java
-package cc.insidious.mercury.bah.task;
-
 import cc.insidious.lootify.api.LootifyAPI;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.helper.LootTableHelper;
@@ -77,9 +75,6 @@ public class LootifyExample {
 To register your own custom loot tables during plugin initialization, implement Lootify’s `IRegistrationHandler` interface.
 
 ```java
-package cc.insidious.lootify.registration.data;
-
-import cc.insidious.lootify.LootifyPlugin;
 import cc.insidious.lootify.api.loottable.ILootTableHandler;
 import cc.insidious.lootify.api.loottable.helper.LootTableHelper;
 import cc.insidious.lootify.api.registration.IRegistrationHandler;
@@ -87,10 +82,10 @@ import cc.insidious.lootify.api.registration.IRegistrationHandler;
 import java.util.stream.Stream;
 
 public class LootTableRegistrationHandler implements IRegistrationHandler {
-    private final LootifyPlugin instance;
+    private final YourPlugin instance;
     private final ILootTableHandler lootTableHandler;
 
-    public LootTableRegistrationHandler(LootifyPlugin instance) {
+    public LootTableRegistrationHandler(YourPlugin instance) {
         this.instance = instance;
         this.lootTableHandler = instance.getLootifyAPI().get(ILootTableHandler.class);
     }
